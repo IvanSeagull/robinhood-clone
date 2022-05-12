@@ -4,6 +4,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 // Components
 import Header from '../components/Header';
+import PortfolioChart from '../components/PortfolioChart';
 
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
@@ -43,7 +44,9 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className={styles.chartContainer}>{/* <PortfolioChart/> */}</div>
+            <div className={styles.chartContainer}>
+              <PortfolioChart />
+            </div>
           </div>
           <div className={styles.buyingPowerContainer}>
             <div className={styles.buyingPowerTitle}>Buying Power</div>
