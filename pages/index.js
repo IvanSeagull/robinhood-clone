@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import PortfolioChart from '../components/PortfolioChart';
 import BuyTokens from '../components/BuyTokens';
 import Notice from '../components/Notice';
+import Asset from '../components/Asset';
 
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
@@ -68,7 +69,7 @@ export default function Home() {
             <BiDotsHorizontalRounded className={styles.moreOptions} />
           </div>
           {/* Map through coins and for every coin make an Asset component */}
-          {/* <Asset/> */}
+          <Asset coin={'BTC'} price={0.89} />
           <div className={styles.rightMainItem}>
             <div className={styles.ItemTitle}>Lists</div>
             <AiOutlinePlus className={styles.moreOptions} />
