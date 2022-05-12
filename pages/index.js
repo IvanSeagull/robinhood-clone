@@ -6,6 +6,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import Header from '../components/Header';
 import PortfolioChart from '../components/PortfolioChart';
 import BuyTokens from '../components/BuyTokens';
+import Notice from '../components/Notice';
 
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
@@ -59,7 +60,7 @@ export default function Home() {
               <BuyTokens />
             </div>
           </div>
-          {/* <Notice/> */}
+          <Notice />
         </div>
         <div className={styles.rightMain}>
           <div className={styles.rightMainItem}>
