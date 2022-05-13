@@ -4,6 +4,8 @@ coverage
 coverage.json
 typechain
 
+config.js
+
 #Hardhat files
 cache
 artifacts
