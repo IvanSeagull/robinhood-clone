@@ -20,11 +20,12 @@ const styles = {
 };
 
 // TODO: change later
-const isAuthenticated = true;
-const formattedAccount = '0x113...131';
+// const isAuthenticated = true;
+// const formattedAccount = '0x113...131';
 
 const Header = () => {
-  const {} = useContext(RobinhoodContext);
+  const { connectWallet, signOut, currentAccount, isAuthenticated, formattedAccount } =
+    useContext(RobinhoodContext);
   return (
     <div className={styles.container}>
       <div className={styles.leftHeader}>

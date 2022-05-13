@@ -5,7 +5,7 @@ export const RobinhoodContext = createContext();
 
 export const RobinhoodProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState('');
-  const [formattedAccounts, setFormattedAccounts] = useState([]);
+  const [formattedAccount, setFormattedAccount] = useState([]);
 
   const { isAuthenticated, authenticate, user, logout, Moralis, enableWeb3 } = useMoralis();
 
@@ -13,14 +13,14 @@ export const RobinhoodProvider = ({ children }) => {
     if (isAuthenticated) {
       const account = user.get('ethAddress');
       let formatAccount = account.slice(0, 4) + '...' + account.slice(-4);
-      setFormattedAccounts(formatAccount);
+      setFormattedAccount(formatAccount);
       setCurrentAccount(account);
     }
   }, [isAuthenticated, enableWeb3]);
 
   useEffect(() => {
     if (!currentAccount) return;
-    async () => {
+    (async () => {
       const response = await fetch('/api/createUser', {
         method: 'POST',
         headers: {
@@ -30,8 +30,9 @@ export const RobinhoodProvider = ({ children }) => {
           walletAddress: currentAccount,
         }),
       });
-      //   const data = await response.json();
-    };
+
+      const data = await response.json();
+    })();
   }, [currentAccount]);
 
   const connectWallet = () => {
@@ -49,7 +50,7 @@ export const RobinhoodProvider = ({ children }) => {
         signOut,
         currentAccount,
         isAuthenticated,
-        formattedAccounts,
+        formattedAccount,
       }}>
       {children}
     </RobinhoodContext.Provider>

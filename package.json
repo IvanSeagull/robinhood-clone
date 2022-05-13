@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/client": "^3.3.0",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "@web3auth/web3auth": "^1.0.0-alpha.0",
     "chart.js": "^3.7.1",
     "moralis": "^1.7.0",
     "next": "12.1.6",
