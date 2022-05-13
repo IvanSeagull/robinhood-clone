@@ -8,6 +8,7 @@
 /studio/node_modules
 /studio/config
 sanityConfig.js
+moralisConfig.js
 
 
 # testing

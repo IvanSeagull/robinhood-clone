@@ -3,6 +3,8 @@ import logo from '../assets/logo.png';
 import Image from 'next/image';
 import { AiOutlineSearch } from 'react-icons/ai';
 
+import { RobinhoodContext } from '../contexts/RobinhoodContext';
+
 const styles = {
   container: 'flex w-screen h-16 bg-black px-24 py-3 mb-5 fixed',
   leftHeader: 'flex flex-1',
@@ -22,6 +24,7 @@ const isAuthenticated = true;
 const formattedAccount = '0x113...131';
 
 const Header = () => {
+  const {} = useContext(RobinhoodContext);
   return (
     <div className={styles.container}>
       <div className={styles.leftHeader}>
