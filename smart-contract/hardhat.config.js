@@ -1,4 +1,6 @@
-const { default: config } = require('./config');
+const config = require('./config');
+
+// const { default: config } = require('./config');
 require('@nomiclabs/hardhat-waffle');
 
 module.exports = {
