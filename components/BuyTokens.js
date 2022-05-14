@@ -29,11 +29,11 @@ const BuyTokens = () => {
           <option className={styles.options} value="USDC">
             USDC
           </option>
-          <option className={styles.options} value="LINK">
-            LINK
+          <option className={styles.options} value="BTC">
+            BTC
           </option>
-          <option className={styles.options} value="DAI">
-            DAI
+          <option className={styles.options} value="SOLANA">
+            SOLANA
           </option>
         </select>
         <select
@@ -47,11 +47,11 @@ const BuyTokens = () => {
           <option className={styles.options} value="USDC">
             USDC
           </option>
-          <option className={styles.options} value="LINK">
-            LINK
+          <option className={styles.options} value="BTC">
+            BTC
           </option>
-          <option className={styles.options} value="DAI">
-            DAI
+          <option className={styles.options} value="SOLANA">
+            SOLANA
           </option>
         </select>
         <input
