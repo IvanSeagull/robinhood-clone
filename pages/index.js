@@ -9,6 +9,13 @@ import BuyTokens from '../components/BuyTokens';
 import Notice from '../components/Notice';
 import Asset from '../components/Asset';
 
+// config for API
+import { config } from '../coinRankingConfig';
+
+import axios from 'axios';
+import { useState, useContext } from 'react';
+import { RobinhoodContext } from '../contexts/RobinhoodContext';
+
 const styles = {
   wrapper: 'w-screen h-screen flex flex-col',
   mainContainer: 'w-2/3 h-full m-auto flex mt-16 ',
@@ -32,14 +39,18 @@ const styles = {
   moreOptions: 'cursor-pointer text-xl',
 };
 
-export default function Home() {
+export default function Home({ coins }) {
+  // console.log(coins);
+
+  const [myCoins] = useState(coins);
+  const { balance } = useContext(RobinhoodContext);
   return (
     <div className={styles.wrapper}>
       <Header />
       <div className={styles.mainContainer}>
         <div className={styles.leftMain}>
           <div className={styles.portfolioAmountContainer}>
-            <div className={styles.portfolioAmount}>23 ETH</div>
+            <div className={styles.portfolioAmount}>{balance} ETH</div>
             <div className={styles.portfolioPercent}>
               +0.0008(+0.57%)
               <span className={styles.pastHour}>Past Hour</span>
@@ -69,7 +80,12 @@ export default function Home() {
             <BiDotsHorizontalRounded className={styles.moreOptions} />
           </div>
           {/* Map through coins and for every coin make an Asset component */}
-          <Asset coin={'BTC'} price={0.89} />
+          {myCoins &&
+            myCoins.map((coin) => {
+              let price = parseFloat(coin.price);
+              price = price.toFixed(2);
+              return <Asset key={coin.uuid} coin={coin} price={price} />;
+            })}
           <div className={styles.rightMainItem}>
             <div className={styles.ItemTitle}>Lists</div>
             <AiOutlinePlus className={styles.moreOptions} />
@@ -79,3 +95,30 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const options = {
+    method: 'GET',
+    url: 'https://coinranking1.p.rapidapi.com/coins',
+    params: {
+      referenceCurrencyUuid: 'yhjMzLPhuIDl',
+      timePeriod: '24h',
+      'tiers[0]': '1',
+      orderBy: 'marketCap',
+      orderDirection: 'desc',
+      limit: '15',
+      offset: '0',
+    },
+    headers: {
+      'X-RapidAPI-Host': config.host,
+      'X-RapidAPI-Key': config.key,
+    },
+  };
+
+  const res = await axios.request(options);
+  const coins = res.data.data.coins;
+
+  return {
+    props: { coins },
+  };
+};

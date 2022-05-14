@@ -11,7 +11,7 @@ import {
   solanaAddress,
   usdcAddress,
 } from '../lib/constants';
-import swapTokens from '../pages/api/swapTokens';
+// import swapTokens from '../pages/api/swapTokens';
 
 export const RobinhoodContext = createContext();
 
@@ -121,7 +121,7 @@ export const RobinhoodProvider = ({ children }) => {
           abi,
           params: {
             to: currentAccount,
-            amount: Moralis.Units.Token('50', '18'),
+            amount: Moralis.Units.Token(amount, '18'),
           },
         };
 
@@ -184,7 +184,7 @@ export const RobinhoodProvider = ({ children }) => {
     };
 
     const transaction = await Moralis.transfer(options);
-    const receipt = await transaction.wait(0);
+    const receipt = await transaction.wait(4);
     console.log(receipt);
     saveTransaction(receipt.transactionHash, amount, receipt.to);
   };

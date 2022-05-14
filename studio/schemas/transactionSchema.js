@@ -4,7 +4,7 @@ export const transactionSchema = {
   type: 'document',
   fields: [
     {
-      name: 'tsHash',
+      name: 'txHash',
       title: 'Transaction Hash',
       type: 'string',
     },
