@@ -11,7 +11,6 @@ import {
   solanaAddress,
   usdcAddress,
 } from '../lib/constants';
-// import swapTokens from '../pages/api/swapTokens';
 
 export const RobinhoodContext = createContext();
 

@@ -8,8 +8,8 @@
 /studio/node_modules
 /studio/config
 sanityConfig.js
-moralisConfig.js
-coinRankingConfig.js
+# moralisConfig.js
+# coinRankingConfig.js
 
 
 # testing

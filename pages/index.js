@@ -41,7 +41,6 @@ const styles = {
 
 export default function Home({ coins }) {
   // console.log(coins);
-
   const [myCoins] = useState(coins);
   const { balance } = useContext(RobinhoodContext);
   return (
