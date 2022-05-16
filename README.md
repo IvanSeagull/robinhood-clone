@@ -8,6 +8,8 @@
 - Moralis
 - Solidity
 
+### Works on rinkeby test chain
+
 ## Hosted here:
 
 https://robinhood-clone-ivanseagull.netlify.app
